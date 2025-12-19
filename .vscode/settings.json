@@ -9,7 +9,6 @@
   "files.exclude": {
     "**/node_modules": true,
     "**/dist": true,
-    "**/.nyc_output": true,
     "**/coverage": true
   },
   "search.exclude": {

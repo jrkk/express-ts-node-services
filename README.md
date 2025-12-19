@@ -12,7 +12,6 @@ A production-ready boilerplate application built with Node.js, Express, and Type
 - **Testing**: Mocha & Chai
 - **Linting**: ESLint
 - **Formatting**: Prettier
-- **Code Coverage**: NYC (Istanbul)
 
 ## 📁 Project Structure
 
@@ -89,11 +88,6 @@ npm test
 ### Watch Mode
 ```bash
 npm run test:watch
-```
-
-### Code Coverage
-```bash
-npm run coverage
 ```
 
 ## 🔍 Linting and Formatting
@@ -177,7 +171,6 @@ The project is fully compatible with Cursor IDE:
 | `npm start` | Run production build |
 | `npm test` | Run unit tests |
 | `npm run test:watch` | Run tests in watch mode |
-| `npm run coverage` | Generate test coverage report |
 | `npm run lint` | Lint code with ESLint |
 | `npm run lint:fix` | Fix linting issues automatically |
 | `npm run format` | Format code with Prettier |
