@@ -1,7 +1,7 @@
 {
   "name": "express-ts-node-services",
   "version": "1.0.0",
-  "description": "Boilerplat application of typescript of express application. fit for preparing APIs",
+  "description": "Boilerplate application with TypeScript and Express framework, fit for building RESTful APIs",
   "main": "dist/index.js",
   "scripts": {
     "dev": "nodemon --watch src --exec ts-node src/index.ts",

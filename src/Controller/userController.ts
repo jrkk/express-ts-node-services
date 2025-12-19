@@ -26,7 +26,18 @@ router.get('/', async (_req: Request, res: Response, next: NextFunction): Promis
  */
 router.get('/:id', async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const user = await userService.getUserById(parseInt(req.params.id, 10));
+    const userId = parseInt(req.params.id, 10);
+    if (isNaN(userId) || userId <= 0) {
+      res.status(400).json({
+        success: false,
+        error: {
+          message: 'Invalid user ID',
+        },
+      });
+      return;
+    }
+
+    const user = await userService.getUserById(userId);
     if (!user) {
       res.status(404).json({
         success: false,
@@ -51,6 +62,18 @@ router.get('/:id', async (req: Request, res: Response, next: NextFunction): Prom
  */
 router.post('/', async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
+    const { email, firstName, lastName } = req.body;
+
+    if (!email || !firstName || !lastName) {
+      res.status(400).json({
+        success: false,
+        error: {
+          message: 'Missing required fields: email, firstName, lastName',
+        },
+      });
+      return;
+    }
+
     const user = await userService.createUser(req.body);
     res.status(201).json({
       success: true,

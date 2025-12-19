@@ -31,7 +31,7 @@ express-ts-node-services/
 ├── .cursorrules          # Cursor IDE rules
 ├── .cursorignore         # Cursor IDE ignore file
 ├── tsconfig.json         # TypeScript configuration
-├── .eslintrc.json        # ESLint configuration
+├── eslint.config.js      # ESLint configuration
 ├── .prettierrc           # Prettier configuration
 ├── .mocharc.json         # Mocha configuration
 └── package.json          # Project dependencies and scripts

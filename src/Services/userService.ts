@@ -10,7 +10,8 @@ export class UserService {
   async getAllUsers(): Promise<User[]> {
     try {
       return await User.findAll();
-    } catch {
+    } catch (error) {
+      console.error('Error fetching users:', error);
       throw new Error('Error fetching users');
     }
   }
@@ -18,7 +19,8 @@ export class UserService {
   async getUserById(id: number): Promise<User | null> {
     try {
       return await User.findByPk(id);
-    } catch {
+    } catch (error) {
+      console.error('Error fetching user:', error);
       throw new Error('Error fetching user');
     }
   }
@@ -26,7 +28,8 @@ export class UserService {
   async createUser(userData: CreateUserDto): Promise<User> {
     try {
       return await User.create(userData);
-    } catch {
+    } catch (error) {
+      console.error('Error creating user:', error);
       throw new Error('Error creating user');
     }
   }
@@ -38,7 +41,8 @@ export class UserService {
         return null;
       }
       return await user.update(userData);
-    } catch {
+    } catch (error) {
+      console.error('Error updating user:', error);
       throw new Error('Error updating user');
     }
   }
@@ -51,7 +55,8 @@ export class UserService {
       }
       await user.destroy();
       return true;
-    } catch {
+    } catch (error) {
+      console.error('Error deleting user:', error);
       throw new Error('Error deleting user');
     }
   }
