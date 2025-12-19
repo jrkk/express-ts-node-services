@@ -1,0 +1,56 @@
+# Cursor IDE Rules for Express TypeScript Node Services
+
+## Project Overview
+- This is a Node.js Express application with TypeScript
+- Stack: NodeJS, Express, Sequelize ORM
+- Testing: Mocha & Chai
+- Linting: ESLint
+- Formatting: Prettier
+
+## Code Style Guidelines
+- Use TypeScript strict mode
+- Follow ESLint rules configured in .eslintrc.json
+- Use Prettier for code formatting
+- Use async/await for asynchronous operations
+- Prefer arrow functions for callbacks
+- Use single quotes for strings
+- Use 2 spaces for indentation
+
+## Project Structure
+- `src/Config` - Application configuration files
+- `src/Middleware` - Express middleware functions
+- `src/Plugins` - Plugin integrations
+- `src/Controller` - Route controllers (business logic)
+- `src/Services` - Business logic services
+- `src/Entities` - Sequelize models/entities
+
+## Development Commands
+- `npm run dev` - Start development server with hot reload
+- `npm run build` - Build TypeScript to JavaScript
+- `npm start` - Run production build
+- `npm test` - Run unit tests with Mocha
+- `npm run lint` - Lint code with ESLint
+- `npm run format` - Format code with Prettier
+
+## Best Practices
+- Always type function parameters and return types
+- Use interfaces for data structures
+- Keep controllers thin, move business logic to services
+- Write unit tests for services and controllers
+- Use environment variables for configuration
+- Handle errors properly with try-catch blocks
+- Use middleware for cross-cutting concerns
+- Validate request data before processing
+- Return consistent API responses
+
+## Database
+- Use Sequelize ORM for database operations
+- Define models in the Entities directory
+- Use migrations for schema changes
+- Always validate data before saving to database
+
+## Testing
+- Write tests using Mocha and Chai
+- Test files should be named *.test.ts or *.spec.ts
+- Aim for high code coverage
+- Mock external dependencies in tests
