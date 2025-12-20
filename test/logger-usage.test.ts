@@ -1,4 +1,4 @@
-import { createFileLogger, FileLogger, loggerPlugin } from '../src/Plugins/Logger.Plugin';
+import { createFileLogger, FileLogger } from '../src/Plugins/Logger.Plugin';
 
 // Example 1: Using the factory function to create a file logger
 console.log('=== Testing File Logger ===');
@@ -25,10 +25,10 @@ customLogger.info('Processing user request', { requestId: 'req-123', userId: 456
 
 // Example 3: Using the default console logger
 console.log('\n=== Testing Console Logger ===');
-loggerPlugin.info('Console logger info message');
-loggerPlugin.error('Console logger error message');
-loggerPlugin.warn('Console logger warning message');
-loggerPlugin.debug('Console logger debug message');
+console.info('Console logger info message');
+console.error('Console logger error message');
+console.warn('Console logger warning message');
+console.debug('Console logger debug message');
 
 // Cleanup - close file streams
 setTimeout(() => {

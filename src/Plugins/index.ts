@@ -3,4 +3,4 @@
  * Barrel export for all plugins
  */
 
-export { LoggerPlugin, logger } from './Logger.Plugin';
+export * from './Logger.Plugin';

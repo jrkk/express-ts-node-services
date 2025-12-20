@@ -17,24 +17,6 @@ export interface LoggerPlugin {
   debug(message: string, meta?: LogMetadata): void;
 }
 
-class ConsoleLogger implements LoggerPlugin {
-  info(message: string, meta?: LogMetadata): void {
-    console.log(`[INFO] ${message}`, meta || '');
-  }
-
-  error(message: string, meta?: LogMetadata): void {
-    console.error(`[ERROR] ${message}`, meta || '');
-  }
-
-  warn(message: string, meta?: LogMetadata): void {
-    console.warn(`[WARN] ${message}`, meta || '');
-  }
-
-  debug(message: string, meta?: LogMetadata): void {
-    console.debug(`[DEBUG] ${message}`, meta || '');
-  }
-}
-
 class FileLogger implements LoggerPlugin {
   private console: Console;
   private logStream: fs.WriteStream;
@@ -90,8 +72,6 @@ class FileLogger implements LoggerPlugin {
   }
 }
 
-export const loggerPlugin: LoggerPlugin = new ConsoleLogger();
-
 /**
  * Create a file-based logger that writes to the specified file path
  * @param filePath - The file path relative to the ./logs directory
@@ -105,3 +85,7 @@ export function createFileLogger(filePath: string): FileLogger {
  * Export the FileLogger class for direct usage
  */
 export { FileLogger };
+
+// Default console-based logger plugin for quick use in tests and development
+// Note: Default console-based `loggerPlugin` removed. Use `FileLogger` or
+// the global `console` directly for simple logging in tests/dev.

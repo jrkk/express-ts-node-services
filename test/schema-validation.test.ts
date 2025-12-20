@@ -1,6 +1,6 @@
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
-import { schemaValidator } from '../src/schemas/validator.js';
+import { schemaValidator } from '../src/Schemas/validator';
 
 describe('Schema Validation', () => {
   describe('User Schema Validation', () => {
