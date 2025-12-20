@@ -1,4 +1,4 @@
-# Express TypeScript Node Services
+# Express TypeScript Node Postgres Services
 
 A production-ready boilerplate application built with Node.js, Express, and TypeScript. Perfect for building RESTful APIs with best practices and modern tooling.
 
