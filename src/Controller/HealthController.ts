@@ -1,14 +1,13 @@
-import { Router, Request, Response } from 'express';
-import { HealthService } from '../Services/healthService';
+import { Request, Response } from 'express';
+import { HealthService } from '@/Services/HealthService';
 
-const router = Router();
 const healthService = new HealthService();
 
 /**
  * GET /api/health
  * Health check endpoint
  */
-router.get('/', async (_req: Request, res: Response): Promise<void> => {
+export const checkHealth = async (_req: Request, res: Response): Promise<void> => {
   try {
     const healthStatus = await healthService.checkHealth();
     res.status(200).json({
@@ -23,6 +22,8 @@ router.get('/', async (_req: Request, res: Response): Promise<void> => {
       },
     });
   }
-});
+};
 
-export default router;
+export const HealthController = {
+  checkHealth,
+};

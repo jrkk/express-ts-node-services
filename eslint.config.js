@@ -46,7 +46,6 @@ module.exports = [
           argsIgnorePattern: '^_',
         },
       ],
-      'no-console': 'warn',
     },
   },
   {
@@ -60,6 +59,9 @@ module.exports = [
         beforeEach: 'readonly',
         afterEach: 'readonly',
       },
+    },
+    rules: {
+      '@typescript-eslint/no-unused-expressions': 'off', // Allow Chai assertions
     },
   },
 ];

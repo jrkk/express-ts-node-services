@@ -1,4 +1,4 @@
-import { User } from '../Entities/User';
+import { User } from '@/Entities/User';
 
 export interface CreateUserDto {
   email: string;
@@ -11,7 +11,7 @@ export class UserService {
     try {
       return await User.findAll();
     } catch (error) {
-      console.error('Error fetching users:', error);
+      console.error('[ERROR] Error fetching users:', error);
       throw new Error('Error fetching users');
     }
   }
@@ -20,7 +20,7 @@ export class UserService {
     try {
       return await User.findByPk(id);
     } catch (error) {
-      console.error('Error fetching user:', error);
+      console.error('[ERROR] Error fetching user:', error);
       throw new Error('Error fetching user');
     }
   }
@@ -29,7 +29,7 @@ export class UserService {
     try {
       return await User.create(userData);
     } catch (error) {
-      console.error('Error creating user:', error);
+      console.error('[ERROR] Error creating user:', error);
       throw new Error('Error creating user');
     }
   }
@@ -42,7 +42,7 @@ export class UserService {
       }
       return await user.update(userData);
     } catch (error) {
-      console.error('Error updating user:', error);
+      console.error('[ERROR] Error updating user:', error);
       throw new Error('Error updating user');
     }
   }
@@ -56,7 +56,7 @@ export class UserService {
       await user.destroy();
       return true;
     } catch (error) {
-      console.error('Error deleting user:', error);
+      console.error('[ERROR] Error deleting user:', error);
       throw new Error('Error deleting user');
     }
   }

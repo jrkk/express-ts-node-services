@@ -13,7 +13,7 @@ export const errorHandler = (
   const statusCode = err.statusCode || 500;
   const message = err.message || 'Internal Server Error';
 
-  console.error(`Error: ${message}`, err);
+  console.error(`[ERROR] Error: ${message}`, err);
 
   res.status(statusCode).json({
     success: false,

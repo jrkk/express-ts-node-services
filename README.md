@@ -10,6 +10,7 @@ A production-ready boilerplate application built with Node.js, Express, and Type
 - **ORM**: Sequelize
 - **Database**: PostgreSQL
 - **Testing**: Mocha & Chai
+- **Process Management**: PM2
 - **Linting**: ESLint
 - **Formatting**: Prettier
 
@@ -38,23 +39,29 @@ express-ts-node-services/
 
 ## 🛠️ Installation
 
+### Traditional Setup
+
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/jrkk/express-ts-node-services.git
 cd express-ts-node-services
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Create a `.env` file based on `.env.example`:
+
 ```bash
 cp .env.example .env
 ```
 
 4. Update the `.env` file with your configuration:
+
 ```env
 NODE_ENV=development
 PORT=3000
@@ -65,27 +72,61 @@ DB_USERNAME=postgres
 DB_PASSWORD=password
 ```
 
+### 🐳 Docker Setup
+
+For a quick start with Docker (includes database):
+
+```bash
+# Using Docker Compose (recommended)
+docker-compose up --build
+
+# The application will be available at http://localhost:3000
+```
+
+📖 **For detailed Docker instructions, see [docs/docker.md](docs/docker.md)**
+
 ## 🏃 Running the Application
 
 ### Development Mode
+
 ```bash
 npm run dev
 ```
 
 ### Production Build
+
 ```bash
 npm run build
 npm start
 ```
 
+### PM2 Process Management
+
+For production environments, use PM2 for process management:
+
+```bash
+# Start with PM2 (builds automatically)
+npm run pm2:start:prod
+
+# Monitor processes
+npm run pm2:monit
+
+# View logs
+npm run pm2:logs
+```
+
+📖 **For detailed PM2 instructions, see [docs/pm2.md](docs/pm2.md)**
+
 ## 🧪 Testing
 
 ### Run Tests
+
 ```bash
 npm test
 ```
 
 ### Watch Mode
+
 ```bash
 npm run test:watch
 ```
@@ -93,21 +134,25 @@ npm run test:watch
 ## 🔍 Linting and Formatting
 
 ### Lint Code
+
 ```bash
 npm run lint
 ```
 
 ### Fix Linting Issues
+
 ```bash
 npm run lint:fix
 ```
 
 ### Format Code
+
 ```bash
 npm run format
 ```
 
 ### Check Formatting
+
 ```bash
 npm run format:check
 ```
@@ -128,11 +173,13 @@ Press `F5` or use the Debug panel in VS Code to start debugging.
 ## 📝 API Endpoints
 
 ### Health Check
+
 ```
 GET /api/health
 ```
 
 ### Users (Example)
+
 ```
 GET    /api/users      - Get all users
 GET    /api/users/:id  - Get user by ID
@@ -151,30 +198,42 @@ POST   /api/users      - Create a new user
 ## 🔧 IDE Support
 
 ### VS Code
+
 The project includes VS Code settings for:
+
 - Format on save
 - ESLint auto-fix on save
 - TypeScript IntelliSense
 - Recommended extensions
 
 ### Cursor IDE
+
 The project is fully compatible with Cursor IDE:
+
 - `.cursorrules` file contains project-specific guidelines
 - `.cursorignore` excludes unnecessary files
 
 ## 📦 Available Scripts
 
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start development server with hot reload |
-| `npm run build` | Build TypeScript to JavaScript |
-| `npm start` | Run production build |
-| `npm test` | Run unit tests |
-| `npm run test:watch` | Run tests in watch mode |
-| `npm run lint` | Lint code with ESLint |
-| `npm run lint:fix` | Fix linting issues automatically |
-| `npm run format` | Format code with Prettier |
-| `npm run format:check` | Check code formatting |
+| Script                   | Description                              |
+| ------------------------ | ---------------------------------------- |
+| `npm run dev`            | Start development server with hot reload |
+| `npm run build`          | Build TypeScript to JavaScript           |
+| `npm start`              | Run production build                     |
+| `npm run pm2:start`      | Start with PM2 (builds automatically)    |
+| `npm run pm2:start:dev`  | Start PM2 in development mode            |
+| `npm run pm2:start:prod` | Start PM2 in production mode             |
+| `npm run pm2:stop`       | Stop PM2 processes                       |
+| `npm run pm2:restart`    | Restart PM2 processes                    |
+| `npm run pm2:reload`     | Reload PM2 processes (zero-downtime)     |
+| `npm run pm2:logs`       | View PM2 logs                            |
+| `npm run pm2:monit`      | PM2 monitoring dashboard                 |
+| `npm test`               | Run unit tests                           |
+| `npm run test:watch`     | Run tests in watch mode                  |
+| `npm run lint`           | Lint code with ESLint                    |
+| `npm run lint:fix`       | Fix linting issues automatically         |
+| `npm run format`         | Format code with Prettier                |
+| `npm run format:check`   | Check code formatting                    |
 
 ## 🤝 Contributing
 
@@ -190,7 +249,7 @@ ISC License
 
 ## 👤 Author
 
-Your Name
+Jrk Kiran<kiran.jrk@abhibus.com>
 
 ## 🙏 Acknowledgments
 

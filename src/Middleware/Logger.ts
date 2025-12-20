@@ -6,14 +6,14 @@ export const logger = (req: Request, res: Response, next: NextFunction): void =>
   const url = req.url;
   const ip = req.ip || req.socket.remoteAddress;
 
-  console.log(`[${timestamp}] ${method} ${url} - IP: ${ip}`);
+  console.log(`[INFO] [${timestamp}] ${method} ${url} - IP: ${ip}`);
 
   // Log response time
   const start = Date.now();
   res.on('finish', () => {
     const duration = Date.now() - start;
     console.log(
-      `[${timestamp}] ${method} ${url} - Status: ${res.statusCode} - Duration: ${duration}ms`
+      `[INFO] [${timestamp}] ${method} ${url} - Status: ${res.statusCode} - Duration: ${duration}ms`
     );
   });
 
